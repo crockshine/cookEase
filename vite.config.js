@@ -10,7 +10,7 @@ const vitePWA =VitePWA({
     ],
     },
   manifest:{
-    name: "cooking PWA for college project",
+    name: "cookingPWAforCollegeProject",
     short_name: "recipes",
     description: "recipes",
     theme_color: "ffffff",

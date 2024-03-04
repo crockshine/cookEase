@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <h1>ЛАлала</h1>
+  <h1>0_0</h1>
 </template>
 
 <style scoped>

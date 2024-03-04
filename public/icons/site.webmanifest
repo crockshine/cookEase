@@ -1,6 +1,6 @@
 {
-    "name": "CookEase",
-    "short_name": "CookEase",
+    "name": "\u0413\u043e\u0442\u043e\u0432\u0438\u0442\u044c? \u041b\u0435\u0433\u043a\u043e!",
+    "short_name": "\u0413\u043e\u0442\u043e\u0432\u0438\u0442\u044c? \u041b\u0435\u0433\u043a\u043e!",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#fefefe",
-    "background_color": "#fefefe",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
     "display": "standalone"
 }

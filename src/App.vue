@@ -1,11 +1,22 @@
 <script setup>
-
+import Header from './components/Header.vue';
 </script>
 
 <template>
-  <h1>0_0</h1>
+    <Header></Header>
+
 </template>
 
-<style scoped>
 
+<style>
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
 </style>

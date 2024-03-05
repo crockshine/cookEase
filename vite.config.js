@@ -2,18 +2,21 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { VitePWA } from 'vite-plugin-pwa'
 
-const vitePWA =VitePWA({
+const vitePWA = VitePWA(
+  {
   registerType:"autoUpdate",
     workbox:{
-      globPatterns:[
+      globPatterns:
+      [
         '**/*{css,woff2,png,svg,jpg,jpeg,js}'
-    ],
+      ],
     },
+    
   manifest:{
-    name: "cookingPWAforCollegeProject",
+    name: "Готовить?",
     short_name: "recipes",
     description: "recipes",
-    theme_color: "ffffff",
+    theme_color: "#ffffff",
 
     icons:[
       {
@@ -28,11 +31,10 @@ const vitePWA =VitePWA({
       }]
 
   }
-},
-  {})
+})
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(),vitePWA],
-  base:"/recipes/"
+  base:"/cookEase/"
 })

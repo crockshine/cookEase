@@ -14,6 +14,7 @@ import Header from './components/Header.vue';
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
   }
 
   a {

@@ -23,6 +23,11 @@
 
 <style scoped>
 
+.header{
+  width: 100vw;
+  overflow: hidden;
+}
+
   .bg-images{
     background-image: url("/images/тарелка с тенью.jpg");
     background-size: cover;
@@ -30,13 +35,13 @@
     width: 100vw;
     height: 100vh;
     background-repeat: no-repeat;
-    min-width: 500px;
+
   }
 
   .wrapper {
     position: absolute;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     background-color: black;
     opacity: 30%;
     z-index: 0;
@@ -83,23 +88,44 @@
   }
 
   .header-text {
+
     position: absolute;
-    width: 100%;
-    top: 12%;
+    width: 100vw;
+    top: 15%;
   }
 
   .title{
     text-align: center;
-    font-size: 10vh;
+    font-size: 7vw;
     color: #d7e8ff;
+    font-family: "Unbounded";
 
   }
-
+.paragraph{
+  color: #d7e8ff;
+  font-size: 2vw;
+  text-align: center;
+  margin-top: 20px;
+  font-family: "Unbounded Light";
+  margin-top: 3vh;
+}
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 11vw; /* На мобильных устройствах ширина шрифта будет 8% ширины экрана */
+  }
   .paragraph{
-    color: #d7e8ff;
-    font-size: 4vh;
-    text-align: center;
-    margin-top: 20px;
+    font-size: 3vw;
   }
+  .header-text{
+    top: 25%;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .title {
+    font-size: 6vw; /* На ПК размер шрифта будет 36 пикселей */
+  }
+}
+
 
 </style>

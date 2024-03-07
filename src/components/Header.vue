@@ -13,7 +13,6 @@
       <div class="steam third"></div>
     </div>
 
-
     <div class="header-text">
       <h1 class="title">Готовить? <span style="background-color: #669655; color: white;">Легко!</span></h1>
       <p class="paragraph"><b>Выбирай блюдо и <br>рассчитывай ингредиенты </b></p>
@@ -28,79 +27,42 @@
   overflow: hidden;
 }
 
-  .bg-images{
-    background-image: url("/images/тарелка с тенью.jpg");
-    background-size: cover;
-    background-position: center;
-    width: 100vw;
-    height: 100vh;
-    background-repeat: no-repeat;
+.bg-images{
+  background-image: url("/images/тарелка с тенью.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+}
 
-  }
-
-  .wrapper {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    background-color: black;
-    opacity: 30%;
-    z-index: 0;
-  }
+.wrapper {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  opacity: 30%;
+  z-index: 0;
+}
 
 .steams{
   display: flex;
   justify-content: center;
   align-items: center;
 }
-  .steam{
-    position: absolute;
-    bottom: 42vh;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 100px;
-    background-image: url('/images/дым.png');
-    animation: steam 3s ease-in-out infinite;
-    z-index: 1;
-    background-repeat: no-repeat;
-    background-size: cover;
+.header-text {
+  position: absolute;
+  width: 100vw;
+  top: 15%;
+}
 
-  }
-  .first{
-    max-width: 100%;
-    max-height: 100%;
-    margin-right: 20%;
-  }
-  .second{
-    max-width: 100%;
-    max-height: 100%;
-  }
-  .third{
-    max-width: 100%;
-    max-height: 100%;
-    margin-left: 20%;
-  }
+.title{
+  text-align: center;
+  font-size: 6vw;
+  color: #d7e8ff;
+  font-family: "Unbounded";
+}
 
-
-  @keyframes steam {
-    0% { opacity: 0; transform: translateY(50px); }
-    30% { opacity: 0.5;  }
-    100% { opacity: 0; transform: translateY(-50px); }
-  }
-
-  .header-text {
-
-    position: absolute;
-    width: 100vw;
-    top: 15%;
-  }
-
-  .title{
-    text-align: center;
-    font-size: 7vw;
-    color: #d7e8ff;
-    font-family: "Unbounded";
-
-  }
 .paragraph{
   color: #d7e8ff;
   font-size: 2vw;
@@ -109,9 +71,10 @@
   font-family: "Unbounded Light";
   margin-top: 3vh;
 }
+
 @media screen and (max-width: 768px) {
   .title {
-    font-size: 11vw; /* На мобильных устройствах ширина шрифта будет 8% ширины экрана */
+    font-size: 11vw;
   }
   .paragraph{
     font-size: 3vw;
@@ -121,11 +84,43 @@
   }
 }
 
-@media screen and (min-width: 769px) {
-  .title {
-    font-size: 6vw; /* На ПК размер шрифта будет 36 пикселей */
-  }
+
+
+.steam{
+  position: absolute;
+  bottom: 42vh;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 100px;
+  background-image: url('/images/дым.png');
+  animation: steam 3s ease-in-out infinite;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
+.first{
+  max-width: 100%;
+  max-height: 100%;
+  margin-right: 20%;
+}
+.second{
+  max-width: 100%;
+  max-height: 100%;
+}
+.third{
+  max-width: 100%;
+  max-height: 100%;
+  margin-left: 20%;
+}
+
+
+@keyframes steam {
+  0% { opacity: 0; transform: translateY(50px); }
+  30% { opacity: 0.5;  }
+  100% { opacity: 0; transform: translateY(-50px); }
+}
+
 
 
 </style>

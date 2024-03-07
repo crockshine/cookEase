@@ -13,8 +13,8 @@ const vitePWA = VitePWA(
     },
     
   manifest:{
-    name: "Готовить?",
-    short_name: "recipes",
+    name: "Готовить? Легко!",
+    short_name: "Готовить? Легко!",
     description: "recipes",
     theme_color: "#ffffff",
 

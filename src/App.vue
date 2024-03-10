@@ -6,7 +6,7 @@ import Menu from './components/Menu.vue';
 <template>
 
   <Header></Header>
-  <Menu></Menu>
+<!--  <Menu></Menu>-->
 
 </template>
 

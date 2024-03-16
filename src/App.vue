@@ -4,9 +4,11 @@ import Menu from './components/Menu.vue';
 </script>
 
 <template>
-
+<div class="window w-screen h-screen">
   <Header></Header>
-<!--  <Menu></Menu>-->
+  <Menu></Menu>
+</div>
+
 
 </template>
 

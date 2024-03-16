@@ -14,6 +14,9 @@ module.exports = {
 
       'm350':{'max': '350px'},
       // => @media (max-width: 350px) { ... }
+
+      'mh700':{'raw': '(max-height: 700px)'},
+// => @media (max-height: 700px) { ... }
     },
     fontSize: {
 

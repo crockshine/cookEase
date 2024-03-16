@@ -1,112 +1,291 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import {ref} from 'vue';
+const isClickable = ref(true);
 
-const width = ref(0);
-const viewBlock = ref(true);
 
-onMounted(function (){
-  width.value = document.querySelector('.card').offsetWidth;
-  if(width.value < 450){
-    viewBlock.value = false;
-    if(width.value > 450){
-      viewBlock.value = false;
-    }
+const Height_1 = ref('h-5/6')
+const Opacity_1 = ref('opacity-100')
+const Translate_1 = ref('-translate-x-auto')
+const Z_1 = ref('z-20')
+const id_1 =ref(1)
+
+const Height_3 = ref('h-3/5')
+const Opacity_3 = ref('opacity-50')
+const Translate_3 = ref('translate-x-full')
+const Z_3 = ref('z-10')
+const id_3 = ref(3)
+
+const Height_2 = ref('h-3/5')
+const Opacity_2 = ref('opacity-50')
+const Translate_2 = ref('-translate-x-full')
+const Z_2 = ref('z-10')
+const id_2 = ref(2)
+
+
+
+
+function handleClickNext() {
+  if (isClickable.value) {
+    countPlus();
+    next();
+    isClickable.value = false;
+    setTimeout(() => {
+      isClickable.value = true;
+    }, 500);
   }
-})
-onBeforeUnmount(function (){
-  window.removeEventListener('resize', updateWidth);
-})
-function updateWidth(){
-  width.value = document.querySelector('.card').offsetWidth;
-  if(width.value < 450){
-    viewBlock.value = false;
-    if(width.value > 450){
-      viewBlock.value = false;
-    }
-  }
-  console.log(width.value)
 }
-addEventListener('resize',updateWidth);
+function handleClickPrev() {
+  if (isClickable.value) {
+    countMinus();
+    prev();
+    isClickable.value = false;
+    setTimeout(() => {
+      isClickable.value = true;
+    }, 500);
+  }
+}
+
+function countPlus(){
+
+  if(id_1.value === 3){
+    id_1.value = 1;
+  }else{
+    id_1.value++;
+  }
+
+  if(id_2.value === 3){
+    id_2.value = 1;
+  }else{
+    id_2.value++;
+  }
+
+  if(id_3.value === 3){
+    id_3.value = 1;
+  }else{
+    id_3.value++;
+  }
+
+}
+function countMinus(){
+
+  if(id_1.value === 1){
+    id_1.value = 3;
+  }else{
+    id_1.value--;
+  }
+
+  if(id_2.value === 1){
+    id_2.value = 3;
+  }else{
+    id_2.value--;
+  }
+
+  if(id_3.value === 1){
+    id_3.value = 3;
+  }else{
+    id_3.value--;
+  }
+
+}
+
+function next(){
+  if(id_1.value === 1){
+    Height_1.value = 'h-5/6'
+    Opacity_1.value = 'opacity-100'
+    Translate_1.value = '-translate-x-auto'
+    Z_1.value = 'z-20'
+  }else if(id_1.value === 2){
+    Height_1.value = 'h-3/5'
+    Opacity_1.value = 'opacity-50'
+    Translate_1.value = '-translate-x-full'
+    Z_1.value = 'z-10'
+  }else if(id_1.value === 3){
+    Height_1.value = 'h-3/5'
+    Opacity_1.value = 'opacity-50'
+    Translate_1.value = 'translate-x-full'
+    Z_1.value = 'z-10'
+  }
+
+  if(id_2.value === 1){
+    Height_2.value = 'h-5/6'
+    Opacity_2.value = 'opacity-100'
+    Translate_2.value = '-translate-x-auto'
+    Z_2.value = 'z-20'
+  }else if(id_2.value === 2){
+    Height_2.value = 'h-3/5'
+    Opacity_2.value = 'opacity-50'
+    Translate_2.value = '-translate-x-full'
+    Z_2.value = 'z-10'
+  }else if(id_2.value === 3){
+    Height_2.value = 'h-3/5'
+    Opacity_2.value = 'opacity-50'
+    Translate_2.value = 'translate-x-full'
+    Z_2.value = 'z-10'
+  }
+
+  if(id_3.value === 1){
+    Height_3.value = 'h-5/6'
+    Opacity_3.value = 'opacity-100'
+    Translate_3.value = 'translate-x-auto'
+    Z_3.value = 'z-20'
+  }else if(id_3.value === 2){
+    Height_3.value = 'h-3/5'
+    Opacity_3.value = 'opacity-50'
+    Translate_3.value = '-translate-x-full'
+    Z_3.value = 'z-10'
+  }else if(id_3.value === 3){
+    Height_3.value = 'h-3/5'
+    Opacity_3.value = 'opacity-50'
+    Translate_3.value = 'translate-x-full'
+    Z_3.value = 'z-10'
+  }
+}
+function prev (){
+  if(id_1.value === 1){
+    Height_1.value = 'h-5/6'
+    Opacity_1.value = 'opacity-100'
+    Translate_1.value = '-translate-x-auto'
+    Z_1.value = 'z-20'
+  }else if(id_1.value === 2){
+    Height_1.value = 'h-3/5'
+    Opacity_1.value = 'opacity-50'
+    Translate_1.value = '-translate-x-full'
+    Z_1.value = 'z-10'
+  }else if(id_1.value === 3){
+    Height_1.value = 'h-3/5'
+    Opacity_1.value = 'opacity-50'
+    Translate_1.value = 'translate-x-full'
+    Z_1.value = 'z-10'
+  }
+
+  if(id_2.value === 1){
+    Height_2.value = 'h-5/6'
+    Opacity_2.value = 'opacity-100'
+    Translate_2.value = '-translate-x-auto'
+    Z_2.value = 'z-20'
+  }else if(id_2.value === 2){
+    Height_2.value = 'h-3/5'
+    Opacity_2.value = 'opacity-50'
+    Translate_2.value = '-translate-x-full'
+    Z_2.value = 'z-10'
+  }else if(id_2.value === 3){
+    Height_2.value = 'h-3/5'
+    Opacity_2.value = 'opacity-50'
+    Translate_2.value = 'translate-x-full'
+    Z_2.value = 'z-10'
+  }
+
+  if(id_3.value === 1){
+    Height_3.value = 'h-5/6'
+    Opacity_3.value = 'opacity-100'
+    Translate_3.value = 'translate-x-auto'
+    Z_3.value = 'z-20'
+  }else if(id_3.value === 2){
+    Height_3.value = 'h-3/5'
+    Opacity_3.value = 'opacity-50'
+    Translate_3.value = '-translate-x-full'
+    Z_3.value = 'z-10'
+  }else if(id_3.value === 3){
+    Height_3.value = 'h-3/5'
+    Opacity_3.value = 'opacity-50'
+    Translate_3.value = 'translate-x-full'
+    Z_3.value = 'z-10'
+  }
+}
 
 
+const x1 = ref(0);
+const diff = ref(0);
+const newTranslate = ref(0);
 
 
+function handleTouchStart(event, id){
+  if (id === 1){
+    x1.value = event.touches[0].clientX;
+    document.querySelector('.block-'+ id).style.height = '60%';
+    document.querySelector('.block-'+ id).style.width = '80%';
 
+  }
+}
 
+function handleTouchMove(event, id){
+
+if (id === 1){
+  diff.value = x1.value - (event.changedTouches[0].clientX)
+  newTranslate.value =-(diff.value/ window.outerWidth) *100; //изменения транслейта  в %
+  // console.log(newTranslate.value)
+  document.querySelector('.block-'+ id).style.transform = `translateX(${newTranslate.value}%)`; //изменения транслейта  в %
+
+  console.log(diff.value);
+  }
+}
+
+function handleTouchEnd(event, id){
+
+    if (Math.abs(diff.value) > window.outerWidth * 0.3 && diff.value>0) {
+      handleClickNext()
+      document.querySelector('.block-'+ id).style.transform = '';
+      document.querySelector('.block-'+ id).style.height = '';
+      document.querySelector('.block-'+ id).style.width = '';
+
+    } else {
+      handleClickPrev()
+      document.querySelector('.block-'+ id).style.transform = '';
+      document.querySelector('.block-'+ id).style.height = '';
+      document.querySelector('.block-'+ id).style.width = '';
+    }
+  diff.value = 0;
+}
 </script>
 
 <template>
-  <div class="menu">
-    <div class="menu-text">Меню</div>
-    <div class="table"></div>
+  <div class="Wrapper h-screen">
+    <div class="Carousel w-screen overflow-hidden h-5/6  flex justify-center items-center relative">
 
-    <div class="menu-card">
-      <div class="card first" ref="card">1</div>
-      <div class="card second" v-if="viewBlock">2</div>
-      <div class="card third" v-if="viewBlock">3</div>
+      <div class="First absolute w-10/12 bg-cover top-1/5 ease duration-500 shadow-2xl shadow-black"
+           @touchstart="handleTouchStart($event, id_1)"
+           @touchmove="handleTouchMove($event, id_1)"
+           @touchend="handleTouchEnd($event, id_1)"
+           :class="Height_1, Opacity_1, Translate_1, Z_1, 'block-' + id_1"
+      ></div>
+
+      <div class="Second absolute h-3/5 w-10/12 bg-cover top-1/5 ease duration-500 shadow-2xl shadow-black"
+           @touchstart="handleTouchStart($event, id_2)"
+           @touchmove="handleTouchMove($event, id_2)"
+           @touchend="handleTouchEnd($event, id_2)"
+           :class="Height_2, Opacity_2, Translate_2, Z_2, 'block-' + id_2"
+      ></div>
+
+      <div class="Third absolute h-3/5 w-10/12 bg-cover top-1/5 shadow-2xl shadow-black ease duration-500"
+           @touchstart="handleTouchStart($event, id_3)"
+           @touchmove="handleTouchMove($event, id_3)"
+           @touchend="handleTouchEnd($event, id_3)"
+           :class="Height_3, Opacity_3, Translate_3, Z_3, 'block-' + id_3"
+      ></div>
+
     </div>
 
-
-
+    <div class="Buttons flex justify-center px-10">
+      <button class="border border-gray-500 h-20 w-full" @click="handleClickPrev"><</button>
+      <button class="border border-gray-500 h-20 w-full" @click="handleClickNext">></button>
+    </div>
   </div>
+
 
 </template>
 
 <style scoped>
+  .First{
+    background-image: url('/images/первые блюда.jpg');
 
-.menu {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-}
+  }
 
-.table {
-  background-image: url("/public/images/низ стола.png");
-  width: 100%;
-  height: 100%;
-  background-size: 100vw 40vh;
-  background-repeat: no-repeat;
-  opacity: 95%;
-  position: relative;
-}
+  .Second{
+    background-image: url('/images/десерты.jpg');
 
-.menu-text {
-  display: flex;
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 10vw;
+  }
 
-  border: 1px solid black;
-  border-radius: 20%;
-}
-
-.menu-card {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-template-rows: repeat(auto-fill, 1fr); /* Деление высоты контейнера .menu на 3 строки */
-  grid-gap: 20px;
-  position: absolute;
-  padding-left: 4vw;
-  padding-right: 4vw;
-  width: 100vw;
-  height: 80%;
-  top: 10vh;
-  justify-content: center;
-  grid-auto-flow: row;
-}
-
-
-.card{
-
-  border: 1px solid black;
-  border-radius: 5%;
-
-
-}
-
-
-
+  .Third{
+    background-image: url('/images/вторые блюда.jpg')
+  }
 </style>

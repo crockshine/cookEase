@@ -19,7 +19,9 @@
 
       <div class="Button flex justify-center w-screen h-2/5">
         <button class="w-1/6  border-2 top-1/4 text-px text-orange-100 text-opacity-80  rounded-lg relative z-10
-                       m594:top-20 m594:w-1/2 m350:w-1/2 ease-out duration-300
+                       m594:top-20 m594:w-1/2 m350:w-1/2 mh700:top-11
+
+                       ease-out duration-300
                        hover:bg-blue-100 hover:text-blue-900">Начать</button>
       </div>
 
@@ -38,7 +40,7 @@
 
 }
 h1{
-  font-family: Sensei;
+  font-family: "Sensei", "Times New Roman";
 }
 button{
   height: 50px;

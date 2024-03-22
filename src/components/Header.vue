@@ -36,7 +36,7 @@
 
 <style scoped>
 .Back{
-  background-image: url('/images/тарелка с тенью.jpg');
+  background-image: url('/images/стол с ушами.jpg');
 
 }
 h1{

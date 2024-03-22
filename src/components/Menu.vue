@@ -1,32 +1,19 @@
 <script setup>
+import Blocks from "./Blocks.vue";
 import {ref} from 'vue';
 const isClickable = ref(true);
+const Opacity_1 = ref('opacity-30');
+const Opacity_2 = ref('opacity-30');
+const Opacity_3 = ref('opacity-30');
 
-
-const Height_1 = ref('h-5/6')
-const Opacity_1 = ref('opacity-100')
-const Translate_1 = ref('-translate-x-auto')
-const Z_1 = ref('z-20')
-const id_1 =ref(1)
-
-const Height_3 = ref('h-3/5')
-const Opacity_3 = ref('opacity-50')
-const Translate_3 = ref('translate-x-full')
-const Z_3 = ref('z-10')
-const id_3 = ref(3)
-
-const Height_2 = ref('h-3/5')
-const Opacity_2 = ref('opacity-50')
-const Translate_2 = ref('-translate-x-full')
-const Z_2 = ref('z-10')
-const id_2 = ref(2)
-
-
-
+function progress(){
+  percent===0 ? Opacity_1.value = 'opacity-90': Opacity_1.value = 'opacity-30';
+  percent===1 ? Opacity_2.value = 'opacity-90': Opacity_2.value = 'opacity-30';
+  percent===2 ? Opacity_3.value = 'opacity-90': Opacity_3.value = 'opacity-30';
+}
 
 function handleClickNext() {
   if (isClickable.value) {
-    countPlus();
     next();
     isClickable.value = false;
     setTimeout(() => {
@@ -36,7 +23,6 @@ function handleClickNext() {
 }
 function handleClickPrev() {
   if (isClickable.value) {
-    countMinus();
     prev();
     isClickable.value = false;
     setTimeout(() => {
@@ -45,247 +31,134 @@ function handleClickPrev() {
   }
 }
 
-function countPlus(){
-
-  if(id_1.value === 3){
-    id_1.value = 1;
-  }else{
-    id_1.value++;
-  }
-
-  if(id_2.value === 3){
-    id_2.value = 1;
-  }else{
-    id_2.value++;
-  }
-
-  if(id_3.value === 3){
-    id_3.value = 1;
-  }else{
-    id_3.value++;
-  }
-
-}
-function countMinus(){
-
-  if(id_1.value === 1){
-    id_1.value = 3;
-  }else{
-    id_1.value--;
-  }
-
-  if(id_2.value === 1){
-    id_2.value = 3;
-  }else{
-    id_2.value--;
-  }
-
-  if(id_3.value === 1){
-    id_3.value = 3;
-  }else{
-    id_3.value--;
-  }
-
-}
-
+let percent = 0, x1=0, diff=0, totalDiff = 0;
 function next(){
-  if(id_1.value === 1){
-    Height_1.value = 'h-5/6'
-    Opacity_1.value = 'opacity-100'
-    Translate_1.value = '-translate-x-auto'
-    Z_1.value = 'z-20'
-  }else if(id_1.value === 2){
-    Height_1.value = 'h-3/5'
-    Opacity_1.value = 'opacity-50'
-    Translate_1.value = '-translate-x-full'
-    Z_1.value = 'z-10'
-  }else if(id_1.value === 3){
-    Height_1.value = 'h-3/5'
-    Opacity_1.value = 'opacity-50'
-    Translate_1.value = 'translate-x-full'
-    Z_1.value = 'z-10'
-  }
+  percent++;
 
-  if(id_2.value === 1){
-    Height_2.value = 'h-5/6'
-    Opacity_2.value = 'opacity-100'
-    Translate_2.value = '-translate-x-auto'
-    Z_2.value = 'z-20'
-  }else if(id_2.value === 2){
-    Height_2.value = 'h-3/5'
-    Opacity_2.value = 'opacity-50'
-    Translate_2.value = '-translate-x-full'
-    Z_2.value = 'z-10'
-  }else if(id_2.value === 3){
-    Height_2.value = 'h-3/5'
-    Opacity_2.value = 'opacity-50'
-    Translate_2.value = 'translate-x-full'
-    Z_2.value = 'z-10'
+  if(percent<3){
+    document.querySelector('.Carousel').style.transform = 'translateX(' + (-100 * percent) + 'vw)';
+    totalDiff-=window.outerWidth;
+  }else{
+    document.querySelector('.Carousel').style.transform = 'translateX(0)';
+    percent = 0;
+    totalDiff = 0;
   }
-
-  if(id_3.value === 1){
-    Height_3.value = 'h-5/6'
-    Opacity_3.value = 'opacity-100'
-    Translate_3.value = 'translate-x-auto'
-    Z_3.value = 'z-20'
-  }else if(id_3.value === 2){
-    Height_3.value = 'h-3/5'
-    Opacity_3.value = 'opacity-50'
-    Translate_3.value = '-translate-x-full'
-    Z_3.value = 'z-10'
-  }else if(id_3.value === 3){
-    Height_3.value = 'h-3/5'
-    Opacity_3.value = 'opacity-50'
-    Translate_3.value = 'translate-x-full'
-    Z_3.value = 'z-10'
-  }
+  progress();//вперед
 }
-function prev (){
-  if(id_1.value === 1){
-    Height_1.value = 'h-5/6'
-    Opacity_1.value = 'opacity-100'
-    Translate_1.value = '-translate-x-auto'
-    Z_1.value = 'z-20'
-  }else if(id_1.value === 2){
-    Height_1.value = 'h-3/5'
-    Opacity_1.value = 'opacity-50'
-    Translate_1.value = '-translate-x-full'
-    Z_1.value = 'z-10'
-  }else if(id_1.value === 3){
-    Height_1.value = 'h-3/5'
-    Opacity_1.value = 'opacity-50'
-    Translate_1.value = 'translate-x-full'
-    Z_1.value = 'z-10'
-  }
+function prev () {
+  percent--;
 
-  if(id_2.value === 1){
-    Height_2.value = 'h-5/6'
-    Opacity_2.value = 'opacity-100'
-    Translate_2.value = '-translate-x-auto'
-    Z_2.value = 'z-20'
-  }else if(id_2.value === 2){
-    Height_2.value = 'h-3/5'
-    Opacity_2.value = 'opacity-50'
-    Translate_2.value = '-translate-x-full'
-    Z_2.value = 'z-10'
-  }else if(id_2.value === 3){
-    Height_2.value = 'h-3/5'
-    Opacity_2.value = 'opacity-50'
-    Translate_2.value = 'translate-x-full'
-    Z_2.value = 'z-10'
+  if (percent >= 0) {
+    document.querySelector('.Carousel').style.transform = 'translateX(' + (-100 * percent) + 'vw)';
+    totalDiff+=window.outerWidth;
+  } else {
+    document.querySelector('.Carousel').style.transform = 'translateX(-200vw)';
+    percent = 2;
+    totalDiff -=window.outerWidth*2;
   }
-
-  if(id_3.value === 1){
-    Height_3.value = 'h-5/6'
-    Opacity_3.value = 'opacity-100'
-    Translate_3.value = 'translate-x-auto'
-    Z_3.value = 'z-20'
-  }else if(id_3.value === 2){
-    Height_3.value = 'h-3/5'
-    Opacity_3.value = 'opacity-50'
-    Translate_3.value = '-translate-x-full'
-    Z_3.value = 'z-10'
-  }else if(id_3.value === 3){
-    Height_3.value = 'h-3/5'
-    Opacity_3.value = 'opacity-50'
-    Translate_3.value = 'translate-x-full'
-    Z_3.value = 'z-10'
-  }
+  progress();//назад
 }
 
+function handleTouchStart(event){
+  x1 = event.touches[0].clientX;
+}
 
-const x1 = ref(0);
-const diff = ref(0);
-const newTranslate = ref(0);
+function handleTouchMove(event){
+  diff = event.touches[0].clientX - x1 ;
+  document.querySelector('.Carousel').style.transform = 'translateX('+(diff+ totalDiff)+'px)';
+}
 
-
-function handleTouchStart(event, id){
-  if (id === 1){
-    x1.value = event.touches[0].clientX;
-    document.querySelector('.block-'+ id).style.height = '60%';
-    document.querySelector('.block-'+ id).style.width = '80%';
-
+function handleTouchEnd(){
+  if(Math.abs(diff)>(window.outerWidth/100)*40 && diff < 0){
+    next();
+    diff = 0;
+  }else if(Math.abs(diff)>(window.outerWidth/100)*40 && diff > 0){
+    prev();
+    diff = 0;
+  }
+  else{
+    document.querySelector('.Carousel').style.transform = 'translateX(' + (-window.outerWidth * percent) + 'px)';
+    diff = 0;
   }
 }
-
-function handleTouchMove(event, id){
-
-if (id === 1){
-  diff.value = x1.value - (event.changedTouches[0].clientX)
-  newTranslate.value =-(diff.value/ window.outerWidth) *100; //изменения транслейта  в %
-  // console.log(newTranslate.value)
-  document.querySelector('.block-'+ id).style.transform = `translateX(${newTranslate.value}%)`; //изменения транслейта  в %
-
-  console.log(diff.value);
-  }
-}
-
-function handleTouchEnd(event, id){
-
-    if (Math.abs(diff.value) > window.outerWidth * 0.3 && diff.value>0) {
-      handleClickNext()
-      document.querySelector('.block-'+ id).style.transform = '';
-      document.querySelector('.block-'+ id).style.height = '';
-      document.querySelector('.block-'+ id).style.width = '';
-
-    } else {
-      handleClickPrev()
-      document.querySelector('.block-'+ id).style.transform = '';
-      document.querySelector('.block-'+ id).style.height = '';
-      document.querySelector('.block-'+ id).style.width = '';
-    }
-  diff.value = 0;
-}
+progress(); //почти как onMounted
 </script>
 
 <template>
-  <div class="Wrapper h-screen">
-    <div class="Carousel w-screen overflow-hidden h-5/6  flex justify-center items-center relative">
 
-      <div class="First absolute w-10/12 bg-cover top-1/5 ease duration-500 shadow-2xl shadow-black"
-           @touchstart="handleTouchStart($event, id_1)"
-           @touchmove="handleTouchMove($event, id_1)"
-           @touchend="handleTouchEnd($event, id_1)"
-           :class="Height_1, Opacity_1, Translate_1, Z_1, 'block-' + id_1"
-      ></div>
+  <div class="Wrapper h-screen  relative overflow-hidden">
+    <div class="Black  bg-black w-screen h-screen relative opacity-100 z-0">
+      <div class="Back bg-cover bg-center h-full w-full absolute opacity-50 -z-10 "></div>
 
-      <div class="Second absolute h-3/5 w-10/12 bg-cover top-1/5 ease duration-500 shadow-2xl shadow-black"
-           @touchstart="handleTouchStart($event, id_2)"
-           @touchmove="handleTouchMove($event, id_2)"
-           @touchend="handleTouchEnd($event, id_2)"
-           :class="Height_2, Opacity_2, Translate_2, Z_2, 'block-' + id_2"
-      ></div>
 
-      <div class="Third absolute h-3/5 w-10/12 bg-cover top-1/5 shadow-2xl shadow-black ease duration-500"
-           @touchstart="handleTouchStart($event, id_3)"
-           @touchmove="handleTouchMove($event, id_3)"
-           @touchend="handleTouchEnd($event, id_3)"
-           :class="Height_3, Opacity_3, Translate_3, Z_3, 'block-' + id_3"
-      ></div>
+      <div class="Carousel hidden m750:flex justify-center items-center h-4/5 ease duration-500"
+           @touchstart="handleTouchStart($event)"
+           @touchmove="handleTouchMove($event)"
+           @touchend="handleTouchEnd($event)">
 
-    </div>
+        <div class="First  h-5/6 w-10/12 bg-cover ease duration-500 shadow-2xl shadow-red-500  mx-5 rounded-2xl relative z-10">
+          <div class="Text h-full w-full flex flex-col items-center pt-8 p-5 absolute text-2xl text-gray-50 z-30">
+            <h1 class="mb-10 text-4xl"><b>ПЕРВОЕ</b></h1>
+            <p><b>Погрузитесь в океан вкусов и ароматов, ощущая каждую ложку, как нежный поцелуй гурманной кухни</b></p>
+          </div>
+          <div class="black w-full h-full bg-black rounded-2xl opacity-50 z-20"></div>
+        </div>
 
-    <div class="Buttons flex justify-center px-10">
-      <button class="border border-gray-500 h-20 w-full" @click="handleClickPrev"><</button>
-      <button class="border border-gray-500 h-20 w-full" @click="handleClickNext">></button>
+        <div class="Second  h-5/6 w-10/12 bg-cover ease duration-500 shadow-2xl shadow-amber-300 mx-5 rounded-2xl relative z-10">
+          <div class="Text h-full w-full flex flex-col items-center pt-8 p-5 absolute text-2xl text-gray-50 z-30">
+            <h1 class="mb-5 text-4xl"><b>ВТОРОЕ</b></h1>
+            <p><b>Ощутите смешение сочных мяс и запеченных овощей, приправленное ароматными соусами</b></p>
+          </div>
+          <div class="black w-full h-full bg-black rounded-2xl opacity-50 z-20"></div>
+        </div>
+
+        <div class="Third  h-5/6 w-10/12 bg-cover ease duration-500 shadow-2xl shadow-fuchsia-200  mx-5 rounded-2xl relative z-10">
+          <div class="Text h-full w-full flex flex-col items-center pt-8 p-5 absolute text-2xl text-gray-50 z-30">
+            <h1 class="mb-5 text-4xl"><b>ДЕСЕРТЫ</b></h1>
+            <p><b>Откройте для себя удовольствие ванили, шоколада и карамели, тающих на языке в каждом кусочке</b></p>
+          </div>
+          <div class="black w-full h-full bg-black rounded-2xl opacity-50 z-20"></div>
+        </div>
+      </div>
+
+      <div class="Progress-bar hidden m750:flex justify-center gap-5 mb-5">
+        <div class="One h-3.5 w-3.5 bg-white rounded-3xl ease duration-300 z-10" :class="Opacity_1"></div>
+        <div class="Two h-3.5 w-3.5 bg-white rounded-3xl ease duration-300 z-10" :class="Opacity_2"></div>
+        <div class="Three h-3.5 w-3.5 bg-white rounded-3xl ease duration-300 z-10" :class="Opacity_3"></div>
+      </div>
+
+      <div class="Buttons hidden m750:flex items-baseline w-full h-20 px-5 gap-1.5">
+        <button class="border border-gray-100 h-4/6 rounded-l-xl text-2xl flex-grow text-white bg-gray-400 bg-opacity-20 z-10" @click="handleClickPrev "><<</button>
+        <button class="border border-gray-100  h-5/6 rounded-lg text-xl flex-grow text-white bg-green-700 bg-opacity-60 z-10">Выбрать</button>
+        <button class="border border-gray-100  h-4/6 rounded-r-xl text-2xl flex-grow text-white bg-gray-400 bg-opacity-20 z-10"@click="handleClickNext">>></button>
+      </div>
+
+      <div class="BLocks m750:hidden  w-full h-full">
+        <Blocks></Blocks>
+      </div>
+
     </div>
   </div>
-
 
 </template>
 
 <style scoped>
-  .First{
-    background-image: url('/images/первые блюда.jpg');
+.Back{
+  background-image: url('/images/фон без стола.jpg');
+}
+.First{
+  background-image: url('/images/первые блюда.jpg');
+}
 
-  }
+.Second{
+  background-image: url('/images/вторые блюда.jpg');
+}
 
-  .Second{
-    background-image: url('/images/десерты.jpg');
+.Third{
+  background-image: url('/images/десерты.jpg')
+}
 
-  }
-
-  .Third{
-    background-image: url('/images/вторые блюда.jpg')
-  }
+.Carousel{
+  width: 300vw;
+}
 </style>

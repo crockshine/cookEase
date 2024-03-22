@@ -19,7 +19,6 @@ module.exports = {
 // => @media (max-height: 700px) { ... }
     },
     fontSize: {
-
       vw20: '20vw',
       vw19: '19vw',
       vw18: '18vw',
@@ -38,9 +37,8 @@ module.exports = {
       '7xl': '4.5rem',
       '8xl': '6rem',
       '9xl': '8rem'
-
-
     }
+
   },
   fontFamily: {
     'sans': ['ui-sans-serif', 'system-ui'],

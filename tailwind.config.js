@@ -6,6 +6,12 @@ module.exports = {
   ],
   theme: {
     screens: {
+      'm1080':{'max': '1080px'},
+      // => @media (max-width: 1080px) { ... }
+
+      'm900':{'max': '900px'},
+      // => @media (max-width: 900px) { ... }
+
       'm750':{'max': '750px'},
       // => @media (max-width: 750px) { ... }
 
@@ -14,6 +20,15 @@ module.exports = {
 
       'm350':{'max': '350px'},
       // => @media (max-width: 350px) { ... }
+
+      'm260':{'max': '260px'},
+      // => @media (max-width: 260px) { ... }
+
+      'mh1275':{'raw': '(max-height: 1275px)'},
+// => @media (max-height: 1275px) { ... }
+
+      'mh720':{'raw': '(max-height: 720px)'},
+// => @media (max-height: 720px) { ... }
 
       'mh700':{'raw': '(max-height: 700px)'},
 // => @media (max-height: 700px) { ... }
@@ -27,6 +42,8 @@ module.exports = {
       vw15: '15vw',
       vw14: '14vw',
       vw10: '10vw',
+      vw2_5: '2.5vw',
+      vh3: '3vh',
       base: '1rem',
       xl: '1.25rem',
       '2xl': '1.563rem',

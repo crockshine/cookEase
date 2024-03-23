@@ -97,25 +97,25 @@ progress(); //почти как onMounted
            @touchend="handleTouchEnd($event)">
 
         <div class="First  h-5/6 w-10/12 bg-cover ease duration-500 shadow-2xl shadow-red-500  mx-5 rounded-2xl relative z-10">
-          <div class="Text h-full w-full flex flex-col items-center pt-8 p-5 absolute text-2xl text-gray-50 z-30">
-            <h1 class="mb-10 text-4xl"><b>ПЕРВОЕ</b></h1>
-            <p><b>Погрузитесь в океан вкусов и ароматов, ощущая каждую ложку, как нежный поцелуй гурманной кухни</b></p>
+          <div class="Text h-full w-full flex flex-col items-center  absolute text-2xl text-gray-50 z-30">
+            <h1 class="w-full mt-10 mb-5 bg-red-800 text-4xl text-center"><b>ПЕРВОЕ</b></h1>
+            <p class=" px-4 m260:text-xl mh720:text-vh3"><b>Погрузитесь в океан вкусов и ароматов, ощущая каждую ложку, как нежный поцелуй гурманной кухни</b></p>
           </div>
           <div class="black w-full h-full bg-black rounded-2xl opacity-50 z-20"></div>
         </div>
 
         <div class="Second  h-5/6 w-10/12 bg-cover ease duration-500 shadow-2xl shadow-amber-300 mx-5 rounded-2xl relative z-10">
-          <div class="Text h-full w-full flex flex-col items-center pt-8 p-5 absolute text-2xl text-gray-50 z-30">
-            <h1 class="mb-5 text-4xl"><b>ВТОРОЕ</b></h1>
-            <p><b>Ощутите смешение сочных мяс и запеченных овощей, приправленное ароматными соусами</b></p>
+          <div class="Text h-full w-full flex flex-col items-center  absolute text-2xl text-gray-50 z-30">
+            <h1 class="w-full mt-10 mb-5 bg-orange-500 text-4xl text-center"><b>ВТОРОЕ</b></h1>
+            <p class=" px-4 m260:text-xl mh720:text-vh3"><b>Ощутите смешение сочных мяс и запеченных овощей, приправленное ароматными соусами</b></p>
           </div>
           <div class="black w-full h-full bg-black rounded-2xl opacity-50 z-20"></div>
         </div>
 
         <div class="Third  h-5/6 w-10/12 bg-cover ease duration-500 shadow-2xl shadow-fuchsia-200  mx-5 rounded-2xl relative z-10">
-          <div class="Text h-full w-full flex flex-col items-center pt-8 p-5 absolute text-2xl text-gray-50 z-30">
-            <h1 class="mb-5 text-4xl"><b>ДЕСЕРТЫ</b></h1>
-            <p><b>Откройте для себя удовольствие ванили, шоколада и карамели, тающих на языке в каждом кусочке</b></p>
+          <div class="Text h-full w-full flex flex-col items-center  absolute text-2xl text-gray-50 z-30">
+            <h1 class="w-full mt-10 mb-5 bg-fuchsia-700 text-4xl text-center"><b>ДЕСЕРТЫ</b></h1>
+            <p class=" px-4 m260:text-xl mh720:text-vh3"><b>Откройте для себя удовольствие ванили, шоколада и карамели, тающих на языке в каждом кусочке</b></p>
           </div>
           <div class="black w-full h-full bg-black rounded-2xl opacity-50 z-20"></div>
         </div>

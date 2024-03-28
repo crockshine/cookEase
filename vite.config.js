@@ -8,7 +8,7 @@ const vitePWA = VitePWA(
     workbox:{
       globPatterns:
       [
-        '**/*{css,woff2,png,svg,jpg,jpeg,js}'
+        '**/*{css,woff2,png,svg,jpg,jpeg,js,html}'
       ],
     },
     

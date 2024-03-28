@@ -1,12 +1,11 @@
 <script setup>
-import Header from './components/Header.vue';
-import Menu from './components/Menu.vue';
+
 </script>
 
 <template>
 <div class="window w-screen h-screen">
-  <Header></Header>
-  <Menu></Menu>
+
+<router-view></router-view>
 </div>
 
 

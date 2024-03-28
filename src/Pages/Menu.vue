@@ -1,10 +1,16 @@
 <script setup>
-import Blocks from "./Blocks.vue";
-import {ref} from 'vue';
+import Blocks from "../components/Blocks.vue";
+import {provide, ref, watch} from 'vue';
+import Page from "./Page.vue";
+import axios from "axios";
 const isClickable = ref(true);
 const Opacity_1 = ref('opacity-30');
 const Opacity_2 = ref('opacity-30');
 const Opacity_3 = ref('opacity-30');
+
+defineProps({
+  server_name: String
+})
 
 function progress(){
   percent===0 ? Opacity_1.value = 'opacity-90': Opacity_1.value = 'opacity-30';
@@ -82,6 +88,7 @@ function handleTouchEnd(){
   }
 }
 progress(); //почти как onMounted
+
 </script>
 
 <template>

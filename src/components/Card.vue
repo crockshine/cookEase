@@ -9,11 +9,11 @@ defineProps({
 </script>
 
 <template>
-  <div class="White flex items-center justify-around h-96 p-2 border-2 border-gray-200 rounded-lg transition
-              hover:-translate-y-5 hover:shadow-2xl hover:cursor-pointer">
-    <img :src="image" alt="" class="h-4/5 rounded-3xl">
+  <div class="White flex justify-center items-center flex-col w-full transition hover:-translate-y-5 hover:shadow-2xl hover:cursor-pointer rounded-3xl border-2 border-gray-400 border-opacity-20 pt-10">
 
-    <div class="Text flex flex-col">
+    <img :src="image" alt="" class=" max-h-96 rounded-3xl">
+
+    <div class="Text flex  flex-col">
       <span class="text-4xl text-center mb-3">{{ title }}</span>
       <div class="text-2xl flex justify-center">
 <!--        часики-->

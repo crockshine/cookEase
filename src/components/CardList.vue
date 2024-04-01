@@ -6,6 +6,7 @@ defineProps({
   items:Array
 })
 
+
 </script>
 
 <template>
@@ -13,9 +14,11 @@ defineProps({
       <Card
       v-for="item in items"
       :key="item.id"
+      :id="item.id"
       :image="item.image"
       :title="item.title"
       :time="item.time"
+
       ></Card>
     </div>
 

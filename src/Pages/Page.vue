@@ -48,6 +48,7 @@ onMounted(async ()=>{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
 }
 
 

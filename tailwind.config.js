@@ -6,8 +6,17 @@ module.exports = {
   ],
   theme: {
     screens: {
+      'm1500':{'max': '1500px'},
+      // => @media (max-width: 1500px) { ... }
+
+      'm1300':{'max': '1300px'},
+      // => @media (max-width: 1300px) { ... }
+
       'm1080':{'max': '1080px'},
       // => @media (max-width: 1080px) { ... }
+
+      'm980':{'max': '980px'},
+      // => @media (max-width: 980px) { ... }
 
       'm900':{'max': '900px'},
       // => @media (max-width: 900px) { ... }
@@ -17,6 +26,9 @@ module.exports = {
 
       'm594':{'max': '594px'},
       // => @media (max-width: 594px) { ... }
+
+      'm470':{'max': '470px'},
+      // => @media (max-width: 470px) { ... }
 
       'm350':{'max': '350px'},
       // => @media (max-width: 350px) { ... }

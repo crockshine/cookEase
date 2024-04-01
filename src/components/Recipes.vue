@@ -15,7 +15,7 @@ const props = defineProps({
 </script>
 
 <template>
-      <div class="flex justify-between text-xl">
+      <div class="flex justify-between text-xl m350:text-base">
         <span>{{ ingTitle }}</span>
         <div class="flex-1 border-b-2 border-dotted"></div>
         <span v-if="count">{{ (Number(props.count) + ( ( Number(props.koef)*Number(props.diff) ) - Number(props.koef) )).toFixed(1)}}</span>

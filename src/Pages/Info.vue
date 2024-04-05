@@ -33,7 +33,7 @@ const countDiffPlus = () =>{
 }
 
 const checkInput = () =>{
-  if(diff.value<1){
+  if(diff.value<0){
     diff.value =1;
   }
 }
@@ -41,11 +41,11 @@ const checkInput = () =>{
 </script>
 
 <template>
-  <div class="Wrapper w-screen pt-20 relative bg-cover ">
-    <div class="Body flex flex-col w-10/12 min-h-screen bg-white  mx-auto rounded-t-2xl shadow-2xl relative">
+  <div class="Wrapper w-screen pt-20 relative bg-cover m750:pt-0 ">
+    <div class="Body flex flex-col w-10/12 m750:w-screen min-h-screen bg-white  mx-auto m750:mx-0 m750:rounded-t-none rounded-t-2xl shadow-2xl relative">
 
       <div class="flex m980:flex-col pt-10 px-10 w-full">
-        <div class="Left flex flex-1   justify-center items-center">
+        <div class="Left flex flex-1  justify-center items-center">
           <img class=" items-center rounded-2xl" :src=recipeData.image alt="">
         </div>
 
@@ -66,10 +66,10 @@ const checkInput = () =>{
             </ul>
             <h1 class="text-center text-2xl m350:text-xl mt-20 m1500:mt-10 m1300:mt-2 mb-3">Порций:</h1>
 
-            <div class="Buttons flex items-center justify-center gap-5 w-full  ">
-              <button @click="countDiffMinus" value="minus" class="w-16  h-14 m1080:h-10 bg-blue-100 rounded-l-xl">(-)</button>
-              <input v-model="diff" type="number" @input="checkInput" class="w-1/6 h-16 m1080:h-10 bg-blue-100 border-2 border-slate-300 text-center text-xl rounded-lg">
-              <button @click="countDiffPlus" value="plus" class="w-16 h-14 m1080:h-10 bg-blue-100 rounded-r-xl">(+)</button>
+            <div class="Buttons flex items-center justify-center gap-3 w-full  ">
+              <button @click="countDiffMinus" value="minus" class="w-1/3  h-14 m1080:h-10 bg-blue-100 rounded-l-xl">(-)</button>
+              <input v-model="diff" type="number" @input="checkInput" class="w-1/6 h-16 m1080:h-10  bg-blue-100  border-2 border-slate-300 text-center text-xl ">
+              <button @click="countDiffPlus" value="plus" class="w-1/3  h-14 m1080:h-10 bg-blue-100 rounded-r-xl">(+)</button>
             </div>
           </div>
 
@@ -77,7 +77,7 @@ const checkInput = () =>{
 
       </div>
       <h2 class="text-center mt-10 text-4xl m350:text-3xl font-bold opacity-90">Как готовить:</h2>
-      <div class="flex flex-1  px-10 w-full ">
+      <div class="flex flex-1  px-10 m350:px-5 w-full ">
         <ul class="flex flex-col ml-10 w-full">
           <li class="list-disc my-4 text-2xl m470:text-xl" v-for="step in recipeData.recept"
               :key="recipeData.recept.id">{{step.text}}</li>

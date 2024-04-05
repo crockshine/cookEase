@@ -6,6 +6,8 @@ module.exports = {
   ],
   theme: {
     screens: {
+      'm3400':{'min-width': '3400px'},
+      // => @media (min-width: 1500px) { ... }
       'm1500':{'max': '1500px'},
       // => @media (max-width: 1500px) { ... }
 

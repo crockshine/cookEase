@@ -14,7 +14,7 @@ const route = useRoute();
 const input = ref('')
 const select = ref('title')
 
-
+const wasFilters = ref(false)
 
 const filters = reactive({
   sortBy: select,
@@ -42,7 +42,9 @@ async function fetchData(){
 }
 
 watch(filters,fetchData)
-
+watch(filters,()=>{
+  wasFilters.value = true; //чтоб не выводился НЕт блюда без запроса
+})
 
 onMounted(fetchData)
 </script>
@@ -68,7 +70,7 @@ onMounted(fetchData)
             </div>
 
             <CardList :items ="items"></CardList>
-            <div v-if="items.length === 0" class="flex pt-20 justify-center items-center h-full w-full text-4xl ">К сожалению, такого блюда нет на сайте</div>
+            <div v-if="items.length === 0 && wasFilters" class="flex pt-20 justify-center items-center h-full w-full text-4xl ">К сожалению, такого блюда нет на сайте</div>
 
         </div>
     </div>
@@ -81,7 +83,7 @@ onMounted(fetchData)
 
 
 .Wrapper{
-  background-color: #f9efe9;
+  background-color: #f5e4da;
 
 }
 

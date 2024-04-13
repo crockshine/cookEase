@@ -1,5 +1,5 @@
 <script setup>
-import {defineProps, ref} from 'vue'
+import {defineProps, watch, ref, onMounted} from 'vue'
 const props = defineProps({
   koef:Number,
   count:Number,
@@ -8,18 +8,25 @@ const props = defineProps({
   diff:Number
 })
 
+const IngValue = ref( props.count + (props.koef * props.diff - props.koef) )
+const Round = ref(false)
 
-
-
-
+watch(() => props.diff, () => {
+  IngValue.value = (props.count + (props.koef * props.diff - props.koef)) ;
+  IngValue.value >= 1000 ? Round.value = true : Round.value = false
+});
+onMounted(() => {
+  IngValue.value = (props.count + (props.koef * props.diff - props.koef)) ;
+  IngValue.value >= 1000 ? Round.value = true : Round.value = false
+});
 </script>
 
 <template>
-      <div class="flex justify-between text-xl m350:text-base">
+      <div class="flex justify-between text-3xl m1300:text-2xl m1080:text-xl m980:text-2xl m350:text-base">
         <span>{{ ingTitle }}</span>
         <div class="flex-1 border-b-2 border-dotted"></div>
-        <span v-if="count">{{ (Number(props.count) + ( ( Number(props.koef)*Number(props.diff) ) - Number(props.koef) )).toFixed(1)}}</span>
-        <span class="ml-2">{{ postfix }}</span>
+        <span v-if="count">{{ Round ? (Math.round(IngValue / 100 * 10) / 100) : (Math.round(IngValue * 10) / 10)   }}</span>
+        <span class="ml-2">{{ Round ? 'кг.' : postfix }}</span>
       </div>
 
 

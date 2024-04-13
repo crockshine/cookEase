@@ -13,7 +13,6 @@ onMounted(async ()=>{
   try{
     const dataItem = await axios.get(`https://f0c3e4d5d7e51412.mokky.dev/${route.params.dish}?id=${route.params.recipes}`)
     recipeData.value = dataItem.data[0];
-    console.log( recipeData.value.recept);
   }catch (err){
     console.log(err)
   }
@@ -77,15 +76,16 @@ const checkInput = () =>{
 
       </div>
       <h2 class="text-center mt-10 text-4xl m350:text-3xl font-bold opacity-90">Как готовить:</h2>
-      <div class="flex flex-1  px-10 m350:px-5 w-full ">
+      <div class="flex flex-1 mb-20  px-10 m470:px-3 w-full ">
         <ul class="flex flex-col ml-10 w-full">
-          <li class="list-disc my-4 text-2xl m470:text-xl" v-for="step in recipeData.recept"
+          <li class="list-decimal my-4 text-3xl m1300:text-2xl m1080:text-xl m980:text-2xl m350:text-base" v-for="step in recipeData.recept"
               :key="recipeData.recept.id">{{step.text}}</li>
         </ul>
       </div>
 
 
 
+      <div class="flex absolute bottom-0  justify-center items-center h-10 w-full bg-orange-100 text-xl font-bold text-slate-600 hover:cursor-pointer "><a href="https://vk.com/crockshine">© Королев Михаил</a></div>
 
 
     </div>
@@ -99,12 +99,13 @@ const checkInput = () =>{
 
 
 .Wrapper{
-  background-image: url('/images/фон без стола.jpg');
+  background-image: url('/images/фон без стола.webp');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 
 }
+
 
 
 

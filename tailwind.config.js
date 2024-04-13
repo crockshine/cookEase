@@ -7,7 +7,13 @@ module.exports = {
   theme: {
     screens: {
       'm3400':{'min-width': '3400px'},
-      // => @media (min-width: 1500px) { ... }
+      // => @media (min-width: 3400px) { ... }
+      'm2000':{'min-width': '2000px'},
+      // => @media (min-width: 2000px) { ... }
+      'min765':{'min-width': '765px'},
+      // => @media (min-width: 765px) { ... }
+      'm2500':{'max': '2500px'},
+      // => @media (max-width: 2500px) { ... }
       'm1500':{'max': '1500px'},
       // => @media (max-width: 1500px) { ... }
 

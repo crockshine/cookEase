@@ -153,19 +153,15 @@ function openCloseCaseSecond(){
            @touchmove="handleTouchMove($event)"
            @touchend="handleTouchEnd($event)">
 
-        <div class="First  h-5/6 w-10/12 bg-cover ease duration-500 shadow-2xl shadow-red-500  mx-5 rounded-2xl relative z-10">
-          <div class="Text h-full w-full flex flex-col items-center  absolute text-2xl text-gray-50 z-30">
+        <div class="Element flex flex-col  h-5/6 w-10/12  ease duration-500 mx-5 pt-20 relative">
 
-            <div  class="flex flex-col h-full w-full items-center justify-center"  >
-              <h1 class="w-full mt-10  bg-fuchsia-700 text-4xl text-center"><b>ПЕРВОЕ</b></h1>
-
-              <div v-if="Show" class="h-fit  transition  px-4 py-10 m260:text-xl mh720:text-vh3 bg-black bg-opacity-50  "><b>Откройте для себя удовольствие ванили, шоколада и карамели, тающих на языке в каждом кусочке</b></div>
-              <div v-if="!Show" class="h-10 w-14 bg-fuchsia-600 text-center opacity-60 rounded-b-lg" @click="show">\/</div>
-              <div v-if="Show" class="h-10 w-14 bg-fuchsia-600 text-center opacity-60 rounded-b-lg" @click="show">/\</div>
-            </div>
-
+          <div class="First-image h-96 w-full bg-cover shadow-2xl shadow-red-500 rounded-2xl " >
+            <h1 class="w-full bg-red-800 text-4xl text-center rounded-t-2xl  absolute  text-gray-50 z-20"><b>ПЕРВОЕ</b></h1>
+            <div class="Gradient h-52 w-full rounded-t-2xl absolute z-10"></div>
+            <div class="black w-full h-full bg-black rounded-2xl opacity-30 z-0"></div>
           </div>
-          <div class="black w-full h-full bg-black rounded-2xl opacity-30 z-20"></div>
+
+          <div class="BlackText text-xl text-center font-bold text-gray-800 px-4 pt-10 m260:text-xl mh720:text-vh3  bg-opacity-50  "><b>Откройте для себя удовольствие ванили, шоколада и карамели, тающих на языке в каждом кусочке</b></div>
         </div>
 
         <div class="Second  h-5/6 w-10/12 bg-cover ease duration-500 shadow-2xl shadow-amber-300 mx-5 rounded-2xl relative z-10">
@@ -196,23 +192,33 @@ function openCloseCaseSecond(){
         </div>
       </div>
 
-      <div class="Progress-bar hidden m750:flex justify-center gap-5 mb-5">
+      <div class="Progress-bar hidden m750:flex justify-center gap-5 mb-2">
         <div class="One h-3.5 w-3.5 bg-white rounded-3xl ease duration-300 z-10" :class="Opacity_1"></div>
         <div class="Two h-3.5 w-3.5 bg-white rounded-3xl ease duration-300 z-10" :class="Opacity_2"></div>
         <div class="Three h-3.5 w-3.5 bg-white rounded-3xl ease duration-300 z-10" :class="Opacity_3"></div>
       </div>
 
-      <div class="Buttons hidden m750:flex items-center w-full h-20 px-5 gap-1.5">
-        <button class="border border-gray-100 h-4/6 rounded-l-xl text-2xl flex-grow text-white bg-gray-400 bg-opacity-20 z-10" @click="handleClickPrev "><<</button>
+      <div class="Buttons hidden m750:flex items-center justify-center w-full h-20 px-5  bottom-16 gap-3">
+        <button class="w-16 h-16
+                     text-2xl text-slate-700 font-bold
+                      bg-gray-100 bg-opacity-90
+                      rounded-3xl z-10" @click="handleClickPrev "><</button>
 
 
-        <button class="border border-gray-100  h-5/6 rounded-lg text-xl flex-grow text-white bg-green-700 bg-opacity-60 z-10">
+        <button class="w-1/3 h-16
+                      text-2xl  text-white
+                      bg-green-700 bg-opacity-90
+                      rounded-3xl z-10
+                      m350:text-xl">
           <router-link  :to="{name: 'Page', params:{dish: `${goTo}`}}">
           <p class="w-full">Выбрать</p>
           </router-link>
         </button>
 
-        <button class="border border-gray-100  h-4/6 rounded-r-xl text-2xl flex-grow text-white bg-gray-400 bg-opacity-20 z-10"@click="handleClickNext">>></button>
+        <button class="w-16 h-16
+                      text-2xl text-slate-700 font-bold
+                      bg-gray-100 bg-opacity-90
+                      rounded-3xl z-10" @click="handleClickNext">></button>
       </div>
 
       <div class="BLocks m750:hidden  w-full h-full">
@@ -220,31 +226,35 @@ function openCloseCaseSecond(){
       </div>
 
     </div>
+    <div class="flex justify-center items-center h-10 w-full  text-lg  font-bold text-slate-100 opacity-70 hover:cursor-pointer bottom-0 absolute"><a href="https://vk.com/crockshine">© Королев Михаил</a></div>
+
   </div>
 
 </template>
 
 <style scoped>
 .Back{
-  background-image: url('/images/фон без стола.jpg');
+  background-image: url('/images/фон без стола.webp');
 }
-.First{
-  background-image: url('/images/первые блюда.jpg');
+.First-image{
+  background-image: url('/images/первые блюда.webp');
 }
 
 .Second{
-  background-image: url('/images/вторые блюда.jpg');
+  background-image: url('/images/вторые блюда.webp');
 }
 
 .Third{
-  background-image: url('/images/десерты.jpg')
+  background-image: url('/images/десерты.webp')
 }
 
 .Carousel{
   width: 300vw;
 }
 
-
+.Gradient{
+  background: linear-gradient(to bottom, rgb(152, 27, 27), rgba(255, 255, 255, 0));
+}
 
 .Open{
   transition:  ease 0.6s;

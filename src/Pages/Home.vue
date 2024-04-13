@@ -17,25 +17,31 @@
       </div>
 
 
-      <router-link to="/menu">
-        <div class="Button flex justify-center w-screen h-2/5">
-          <button class="
-            w-1/6  border-2 top-1/4 text-px text-orange-100 text-opacity-80  rounded-lg relative z-10
-            m594:top-20 m594:w-1/2 m350:w-1/2 mh700:top-11
-            ease-out duration-300
-            hover:bg-blue-100 hover:text-blue-900">Начать</button>
-        </div>
-      </router-link>
 
+      <div class="Button flex justify-center  w-screen h-2/5 relative">
+        <router-link class="border-2 w-1/5 h-2/6  absolute
+                            top-28 rounded-2xl
+                            flex justify-center items-center
+                            text-5xl text-white text-opacity-80 font-bold
+                            ease-out duration-300
+                            m2500:top-16 m1300:text-4xl m1300:w-1/5 m1300:h-1/5 m1300:top-18 m750:w-1/2 m750:text-2xl
+                            hover:bg-orange-100 hover:text-orange-950" to="/menu">
+          Начать
+        </router-link>
+      </div>
+
+
+      <div  class="m594:text-xl flex justify-center items-center h-16 w-full  text-2xl font-bold text-slate-100 opacity-70 hover:cursor-pointer bottom-0 absolute"><a href="https://vk.com/crockshine">© Королев Михаил</a></div>
 
     </div>
+
   </div>
 
 </template>
 
 <style scoped>
 .Back{
-  background-image: url('/images/стол с ушами.jpg');
+  background-image: url('/images/стол с ушами.webp');
 
 }
 h1{

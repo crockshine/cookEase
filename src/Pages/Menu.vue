@@ -139,8 +139,8 @@ let MenuCardInfo = {
     <div class="Black  bg-black w-screen h-screen relative opacity-100 z-0">
       <div class="Back bg-cover bg-center h-full w-full absolute opacity-80 -z-10 "></div>
 
-
-      <div class="Carousel hidden m750:flex justify-center items-center h-fit  pt-5 ease duration-500"
+      <div class="Info flex flex-col h-full justify-center ">
+      <div class="Carousel hidden m750:flex justify-center items-center h-fit  ease duration-500"
            @touchstart="handleTouchStart($event)"
            @touchmove="handleTouchMove($event)"
            @touchend="handleTouchEnd($event)">
@@ -155,7 +155,9 @@ let MenuCardInfo = {
 
       </div>
 
-      <div class="Progress-bar hidden m750:flex justify-center gap-5 mb-2">
+
+
+      <div class="Progress-bar hidden m750:flex justify-center gap-5 mt-10 mb-2">
         <div class="One h-3.5 w-3.5 bg-white rounded-3xl ease duration-300 z-10" :class="Opacity_1"></div>
         <div class="Two h-3.5 w-3.5 bg-white rounded-3xl ease duration-300 z-10" :class="Opacity_2"></div>
         <div class="Three h-3.5 w-3.5 bg-white rounded-3xl ease duration-300 z-10" :class="Opacity_3"></div>
@@ -184,6 +186,7 @@ let MenuCardInfo = {
                       rounded-3xl z-10" @click="handleClickNext">></button>
       </div>
 
+
       <div class="Blocks m750:hidden  w-full h-full">
         <div class="Blocks w-full h-full flex justify-center items-center gap-10 px-10 ">
         <Blocks v-for="CardInfo in MenuCardInfo"
@@ -196,7 +199,7 @@ let MenuCardInfo = {
                 :id="CardInfo.id"></Blocks>
         </div>
       </div>
-
+      </div>
     </div>
     <div class="flex justify-center items-center h-10 w-full  text-lg  font-bold text-slate-100 opacity-70 hover:cursor-pointer bottom-0 absolute"><a href="https://vk.com/crockshine">© Королев Михаил</a></div>
 

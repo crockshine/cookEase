@@ -1,9 +1,9 @@
 <script setup>
 import Blocks from "../components/Blocks.vue";
-import {provide, ref, watch} from 'vue';
-import Page from "./Page.vue";
-import axios from "axios";
-const isClickable = ref(true);
+import MenuCard from "../components/Menu-Card.vue";
+import {ref} from 'vue';
+
+
 const Opacity_1 = ref('opacity-30');
 const Opacity_2 = ref('opacity-30');
 const Opacity_3 = ref('opacity-30');
@@ -13,14 +13,16 @@ defineProps({
   server_name: String
 })
 
-function progress(){
+function  progress(){
   percent===0 ? Opacity_1.value = 'opacity-90': Opacity_1.value = 'opacity-30';
   percent===1 ? Opacity_2.value = 'opacity-90': Opacity_2.value = 'opacity-30';
   percent===2 ? Opacity_3.value = 'opacity-90': Opacity_3.value = 'opacity-30';
-  if(percent===0){goTo.value = 'first'}else if(percent===1){goTo.value = 'second'}else if(percent===2){goTo.value = 'third'}
-
+  if(percent===0){goTo.value = 'first'}
+  else if(percent===1){goTo.value = 'second'}
+  else if(percent===2){goTo.value = 'third'}
 }
 
+const isClickable = ref(true); //ограничитель спама
 function handleClickNext() {
   if (isClickable.value) {
     next();
@@ -40,12 +42,16 @@ function handleClickPrev() {
   }
 }
 
-let percent = 0, x1=0, diff=0, totalDiff = 0;
+//переходы
+let percent = 0, x1 = 0, diff = 0, totalDiff = 0;
 
+//+процент на который перелистыват автомат, и откат если упор.
+//определяет пути перехода
 function next(){
   percent++;
-  if(percent===0){goTo.value = 'first'}else if(percent===1){goTo.value = 'second'}else if(percent===2){goTo.value = 'third'}
-
+  if(percent===0){goTo.value = 'first'}
+  else if(percent===1){goTo.value = 'second'}
+  else if(percent===2){goTo.value = 'third'}
 
   if(percent<3){
     document.querySelector('.Carousel').style.transform = 'translateX(' + (-100 * percent) + 'vw)';
@@ -73,7 +79,7 @@ function prev () {
   }
   progress();//назад
 }
-
+//сенсорная часть
 function handleTouchStart(event){
   x1 = event.touches[0].clientX;
 }
@@ -82,7 +88,7 @@ function handleTouchMove(event){
   diff = event.touches[0].clientX - x1 ;
   document.querySelector('.Carousel').style.transform = 'translateX('+(diff+ totalDiff)+'px)';
 }
-
+//перекидывает на некст
 function handleTouchEnd(){
   if(Math.abs(diff)>(window.outerWidth/100)*40 && diff < 0){
     next();
@@ -98,98 +104,55 @@ function handleTouchEnd(){
 }
 progress(); //почти как onMounted
 
-const Show = ref(false)
-function show(){
-  Show.value = !Show.value
-}
-
-const Open = ref(false)
-function openCloseCase(){
-  Open.value = !Open.value;
-  if(Open.value){
-    document.querySelector('.HiddenCase').classList.remove('Close')
-    document.querySelector('.Arrow').classList.remove('RotateDown')
-
-    document.querySelector('.HiddenCase').classList.add('Open')
-    document.querySelector('.Arrow').classList.add('RotateUp')
-  }else{
-    document.querySelector('.HiddenCase').classList.remove('Open')
-    document.querySelector('.Arrow').classList.remove('RotateUp')
-
-
-    document.querySelector('.HiddenCase').classList.add('Close')
-    document.querySelector('.Arrow').classList.add('RotateDown')
+let MenuCardInfo = {
+  first: {
+    title: 'Первое',
+    image:'./images/первые блюда.webp',
+    description:'Почувствуйте удовольствие в каждой ложке',
+    color:'rgb(152, 27, 27)',
+    link: 'first',
+    id:1
+  },
+  second: {
+    title: 'Второе',
+    image:'./images/вторые блюда.webp',
+    description:'Ощутите смешение сочных мяс',
+    color:'rgb(190,109,3)',
+    link: 'second',
+    id:2
+  },
+  third: {
+    title: 'Десерты',
+    image:'./images/десерты.webp',
+    description:'Откройте для себя удовольствие ванили',
+    color:'rgb(190,13,187)',
+    link: 'third',
+    id:3
   }
 }
 
-function openCloseCaseSecond(){
-  Open.value = !Open.value;
-  if(Open.value){
-    document.querySelector('.HiddenCaseSecond').classList.remove('Close')
-    document.querySelector('.ArrowSecond').classList.remove('RotateDown')
-
-    document.querySelector('.HiddenCaseSecond').classList.add('Open')
-    document.querySelector('.ArrowSecond').classList.add('RotateUp')
-  }else{
-    document.querySelector('.HiddenCaseSecond').classList.remove('Open')
-    document.querySelector('.ArrowSecond').classList.remove('RotateUp')
-
-
-    document.querySelector('.HiddenCase').classList.add('Close')
-    document.querySelector('.ArrowSecond').classList.add('RotateDown')
-  }
-}
 </script>
 
 <template>
 
-  <div class="Wrapper h-screen  relative overflow-hidden">
+  <div class="Wrapper h-screen w-screen relative overflow-hidden">
     <div class="Black  bg-black w-screen h-screen relative opacity-100 z-0">
       <div class="Back bg-cover bg-center h-full w-full absolute opacity-80 -z-10 "></div>
 
 
-      <div class="Carousel hidden m750:flex justify-center items-center h-4/5 ease duration-500"
+      <div class="Carousel hidden m750:flex justify-center items-center h-fit  pt-5 ease duration-500"
            @touchstart="handleTouchStart($event)"
            @touchmove="handleTouchMove($event)"
            @touchend="handleTouchEnd($event)">
+        <MenuCard v-for="CardInfo in MenuCardInfo"
+                  :key="MenuCardInfo.id"
+                  :title="CardInfo.title"
+                  :imageUrl="CardInfo.image"
+                  :description="CardInfo.description"
+                  :color="CardInfo.color"
+                  ></MenuCard>
 
-        <div class="Element flex flex-col  h-5/6 w-10/12  ease duration-500 mx-5 pt-20 relative">
 
-          <div class="First-image h-96 w-full bg-cover shadow-2xl shadow-red-500 rounded-2xl " >
-            <h1 class="w-full bg-red-800 text-4xl text-center rounded-t-2xl  absolute  text-gray-50 z-20"><b>ПЕРВОЕ</b></h1>
-            <div class="Gradient h-52 w-full rounded-t-2xl absolute z-10"></div>
-            <div class="black w-full h-full bg-black rounded-2xl opacity-30 z-0"></div>
-          </div>
-
-          <div class="BlackText text-xl text-center font-bold text-gray-800 px-4 pt-10 m260:text-xl mh720:text-vh3  bg-opacity-50  "><b>Откройте для себя удовольствие ванили, шоколада и карамели, тающих на языке в каждом кусочке</b></div>
-        </div>
-
-        <div class="Second  h-5/6 w-10/12 bg-cover ease duration-500 shadow-2xl shadow-amber-300 mx-5 rounded-2xl relative z-10">
-          <div class="Text h-full w-full flex flex-col items-center  absolute text-2xl text-gray-50 z-30">
-            <div  class="flex flex-col h-full w-full items-center justify-center"  >
-              <h1 class="w-full mt-10  bg-fuchsia-700 text-4xl text-center"><b>ВТОРОЕ</b></h1>
-
-              <div v-if="Show" class="h-fit  transition  px-4 py-10 m260:text-xl mh720:text-vh3 bg-black bg-opacity-50  "><b>Откройте для себя удовольствие ванили, шоколада и карамели, тающих на языке в каждом кусочке</b></div>
-              <div v-if="!Show" class="h-10 w-14 bg-fuchsia-600 text-center opacity-60 rounded-b-lg" @click="show">\/</div>
-              <div v-if="Show" class="h-10 w-14 bg-fuchsia-600 text-center opacity-60 rounded-b-lg" @click="show">/\</div>
-            </div>
-          </div>
-          <div class="black w-full h-full bg-black rounded-2xl opacity-30 z-20"></div>
-        </div>
-
-        <div class="Third  h-5/6 w-10/12 bg-cover ease duration-500 shadow-2xl shadow-fuchsia-200  mx-5 rounded-2xl relative z-10">
-
-          <div class="Text h-full w-full flex flex-col items-center  absolute text-2xl text-gray-50 z-30">
-            <div  class="flex flex-col h-full w-full items-center justify-center"  >
-              <h1 class="w-full mt-10  bg-fuchsia-700 text-4xl text-center"><b>ДЕСЕРТЫ</b></h1>
-
-              <div v-if="Show" class="h-fit  transition  px-4 py-10 m260:text-xl mh720:text-vh3 bg-black bg-opacity-50  "><b>Откройте для себя удовольствие ванили, шоколада и карамели, тающих на языке в каждом кусочке</b></div>
-              <div v-if="!Show" class="h-10 w-14 bg-fuchsia-600 text-center opacity-60 rounded-b-lg" @click="show">\/</div>
-              <div v-if="Show" class="h-10 w-14 bg-fuchsia-600 text-center opacity-60 rounded-b-lg" @click="show">/\</div>
-            </div>
-          </div>
-          <div class="black w-full h-full bg-black rounded-2xl opacity-30 z-20"></div>
-        </div>
       </div>
 
       <div class="Progress-bar hidden m750:flex justify-center gap-5 mb-2">
@@ -215,14 +178,23 @@ function openCloseCaseSecond(){
           </router-link>
         </button>
 
-        <button class="w-16 h-16
+        <button class=" w-16 h-16
                       text-2xl text-slate-700 font-bold
                       bg-gray-100 bg-opacity-90
                       rounded-3xl z-10" @click="handleClickNext">></button>
       </div>
 
-      <div class="BLocks m750:hidden  w-full h-full">
-        <Blocks></Blocks>
+      <div class="Blocks m750:hidden  w-full h-full">
+        <div class="Blocks w-full h-full flex justify-center items-center gap-10 px-10 ">
+        <Blocks v-for="CardInfo in MenuCardInfo"
+                :key="MenuCardInfo.id"
+                :title="CardInfo.title"
+                :imageUrl="CardInfo.image"
+                :description="CardInfo.description"
+                :color="CardInfo.color"
+                :link="CardInfo.link"
+                :id="CardInfo.id"></Blocks>
+        </div>
       </div>
 
     </div>
@@ -236,43 +208,8 @@ function openCloseCaseSecond(){
 .Back{
   background-image: url('/images/фон без стола.webp');
 }
-.First-image{
-  background-image: url('/images/первые блюда.webp');
-}
-
-.Second{
-  background-image: url('/images/вторые блюда.webp');
-}
-
-.Third{
-  background-image: url('/images/десерты.webp')
-}
 
 .Carousel{
   width: 300vw;
-}
-
-.Gradient{
-  background: linear-gradient(to bottom, rgb(152, 27, 27), rgba(255, 255, 255, 0));
-}
-
-.Open{
-  transition:  ease 0.6s;
-  opacity: 1;
-  height: 30vh;
-
-}
-.RotateUp{
-  transition: ease 0.5s;
-  rotate: 200grad;
-}
-.RotateDown{
-  transition: ease 0.5s;
-  rotate: 0grad;
-}
-.Close{
-  transition:  ease 0.6s;
-  opacity: 0;
-  height: 0;
 }
 </style>

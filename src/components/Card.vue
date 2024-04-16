@@ -1,23 +1,19 @@
 <script setup>
 import { defineProps, ref } from 'vue';
 
-defineProps({
+const props = defineProps({
   image:String,
   title:String,
   time:Number,
   id:Number,
 });
 
-const itemId = ref()
-function getId(id){
-  itemId.value = id;
-}
 </script>
 
 <template>
-  <router-link :to="{name: 'Info', params:{recipes: `${itemId}`}}">
+  <router-link :to="{name: 'Info', params:{recipes: `${props.id}`}}">
 
-  <div @click="getId(id)" class="White  flex justify-center items-center flex-col w-full transition hover:-translate-y-5 hover:shadow-2xl hover:cursor-pointer rounded-3xl border-2 border-gray-400 border-opacity-20 pt-10 px-10 m350:px-5 m350:pt-5">
+  <div class="White  flex justify-center items-center flex-col w-full transition hover:-translate-y-5 hover:shadow-2xl hover:cursor-pointer rounded-3xl border-2 border-gray-400 border-opacity-20 pt-10 px-10 m350:px-5 m350:pt-5">
 
     <img :src="image" alt="" class="w-full max-w-96 rounded-3xl">
 

@@ -25,9 +25,9 @@ async function fetchData(){
     const params = {
       sortBy:filters.sortBy
     }
-  if(filters.searchInput){
-    params.title = `*${filters.searchInput}*`
-  }
+    if(filters.searchInput){
+      params.title = `*${filters.searchInput}*`
+    }
     const dataHead = await axios.get('https://f0c3e4d5d7e51412.mokky.dev/pages')
     const dataItems = await axios.get(`https://f0c3e4d5d7e51412.mokky.dev/${route.params.dish}`,{params})
 
@@ -57,9 +57,7 @@ window.onscroll = () => {
       document.querySelector('.RoundUp').style.opacity = 1; // Показываем кнопку
   } else  {
     document.querySelector('.RoundUp').style.opacity = 0;  // Скрываем кнопку
-    setTimeout(function (){
-      Op.value = false
-    },300)
+
   }
 }
 
@@ -133,16 +131,11 @@ function Up(){
 
 
 .Wrapper{
-<<<<<<< HEAD
-  background-color: #f5e4da;
-
-=======
   background-color: #f9e3d5;
 }
 .RoundUp {
   border-radius: 100%;
   transition: opacity 0.3s ease; /* Добавляем плавное изменение прозрачности за 0.3 секунды */
->>>>>>> 60030a7dedcb94102487ed63f5f7d270d4f6e9b4
 }
 
 

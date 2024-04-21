@@ -29,7 +29,7 @@ const DeleteBgColor = ()=>{
       <div class="Text w-full h-full flex flex-col justify-center items-center text-white">
         <h1 class="H w-full text-6xl m900:text-4xl text-center bg-red-800 shadow-2xl shadow-zinc-950 ease duration-500 absolute"
             :style="{ backgroundColor: color }"><b>{{title}}</b></h1>
-        <p class="P p-10 m980:p-5  m1080:text-vw2_5 mh1275:text-vh3 ease duration-500 "><b>{{description}}</b></p>
+        <p class="P p-10 m980:p-5  m1080:text-vw2_5 mh1275:text-vh3 m2000:text-vw2_5 ease duration-500 "><b>{{description}}</b></p>
       </div>
 
       <router-link :to="{name: 'Page', params:{dish: link}}">

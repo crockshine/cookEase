@@ -9,9 +9,7 @@ const Opacity_2 = ref('opacity-30');
 const Opacity_3 = ref('opacity-30');
 
 const goTo = ref('')
-defineProps({
-  server_name: String
-})
+
 
 function  progress(){
   percent===0 ? Opacity_1.value = 'opacity-90': Opacity_1.value = 'opacity-30';
@@ -190,7 +188,7 @@ let MenuCardInfo = {
       <div class="Blocks m750:hidden  w-full h-full">
         <div class="Blocks w-full h-full flex justify-center items-center gap-10 px-10 ">
         <Blocks v-for="CardInfo in MenuCardInfo"
-                :key="MenuCardInfo.id"
+                :key="CardInfo.id"
                 :title="CardInfo.title"
                 :imageUrl="CardInfo.image"
                 :description="CardInfo.description"

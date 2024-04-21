@@ -89,9 +89,9 @@ function Up(){
 
             </div>
 
-            <div class="flex-1 flex gap-10 m470:gap-5 justify-center w-full h-16">
+            <div class="flex-1 flex gap-10 m470:gap-5 m470:h-12 justify-center w-full h-16">
 
-              <select v-model="select"  class="w-1/2 px-4 m470:px-0 max-w-96 h-full border-2 border-slate-200 rounded-md text-2xl m470:text-xl text-center text-slate-600 outline-0" name="" id="">
+              <select v-model="select"  class="w-1/2 px-4 m470:px-0 max-w-96 h-full  border-2 border-slate-200 rounded-md text-2xl m470:text-xl text-center text-slate-600 outline-0" name="" id="">
 
                 <option value="title">По названию</option>
                 <option value="time">По времени (меньше)</option>

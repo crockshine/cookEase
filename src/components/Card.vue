@@ -13,13 +13,15 @@ const props = defineProps({
 <template>
   <router-link :to="{name: 'Info', params:{recipes: `${props.id}`}}">
 
-  <div class="White  flex justify-center items-center flex-col w-full transition hover:-translate-y-5 hover:shadow-2xl hover:cursor-pointer rounded-3xl border-2 border-gray-400 border-opacity-20 pt-10 px-10 m350:px-5 m350:pt-5">
+  <div class="White  flex justify-center items-center flex-col w-full transition
+            hover:-translate-y-5 hover:shadow-2xl hover:cursor-pointer m750:hover:shadow-none
+            rounded-3xl border-2 border-gray-400 border-opacity-20 pt-2 px-2">
 
     <img :src="image" alt="" class="w-full max-w-96 rounded-3xl">
 
     <div class="Text flex  flex-col">
-      <span class="text-4xl m350:text-3xl text-center mb-3">{{ title }}</span>
-      <div class="text-2xl flex justify-center">
+      <span class="text-xl m2000:text-3xl font-bold text-center mb-1">{{ title }}</span>
+      <div class="text-xl m2000:text-2xl flex justify-center">
 <!--        часики-->
         <span>{{ time }} мин.</span>
       </div>

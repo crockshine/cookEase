@@ -3,7 +3,8 @@
 </script>
 
 <template>
-  <div class="Wrapper">
+  <div class="Wrapper overflow-hidden ">
+
 
     <div class="Black bg-black w-screen h-screen relative">
 
@@ -33,6 +34,7 @@
                             hover:bg-orange-100 hover:text-orange-950"
                             to="/menu">Начать
         </router-link>
+
       </div>
 
 
@@ -53,6 +55,25 @@
 
 h1{
   font-family: "Sensei", "Times New Roman";
+}
+
+.Smokes {
+  animation: smokeAnimation 3s infinite; /* Настраиваем анимацию */
+}
+
+@keyframes smokeAnimation {
+  0% {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100%{
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+
 }
 
 </style>

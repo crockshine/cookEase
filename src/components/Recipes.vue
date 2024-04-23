@@ -23,7 +23,7 @@ onMounted(() => {
 </script>
 
 <template>
-      <div class="flex justify-between text-3xl m1300:text-2xl m1080:text-xl m980:text-2xl m350:text-vh3">
+      <div class="flex justify-between text-2xl m1300:text-xl m1080:text-xl">
         <span>{{ ingTitle }}</span>
         <div class="flex-1 border-b-2 border-dotted"></div>
         <span v-if="count">{{ Round ? (Math.round(IngValue / 100 * 10) / 100) : (Math.round(IngValue * 10) / 10)   }}</span>

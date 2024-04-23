@@ -43,16 +43,16 @@ const checkInput = () =>{
   <div class="Wrapper w-screen pt-20 relative bg-cover m750:pt-0 ">
     <div class="Body flex flex-col w-10/12 m750:w-screen min-h-screen bg-white  mx-auto m750:mx-0 m750:rounded-t-none rounded-t-2xl shadow-2xl relative">
 
-      <div class="flex m980:flex-col pt-10 px-10 w-full">
+      <div class="flex m980:flex-col pt-5 px-5 w-full">
         <div class="Left flex flex-1  justify-center items-center">
-          <img class=" items-center rounded-2xl" :src=recipeData.image alt="">
+          <img class="h-4/5 object-cover w-full m980:h-80  items-center rounded-2xl" :src=recipeData.image alt="">
         </div>
 
         <div class="Right ml-20 m1080:ml-8 m980:ml-0 px-10 m470:px-0 flex-1 flex flex-col">
           <h1 class="text-center m980:mt-3 text-5xl m350:text-4xl font-bold opacity-90">{{recipeData.title}}</h1>
-          <h2 class="text-center m980:mb-3 mt-2 text-2xl m350:text-xl  opacity-90">Ингридиенты:</h2>
+          <h2 class="text-center  mt-2 mb-3 text-2xl m350:text-xl font-medium ">Ингредиенты:</h2>
 
-          <div class="Counter flex-1 flex flex-col justify-center px-10 m980:px-0">
+          <div class="Counter flex-1 flex flex-col gap-10 justify-center px-10 m980:px-0">
             <ul class="w-full h-fit  ">
               <li v-for="ingredient in recipeData.ingredients"
                   :key="recipeData.ingredients.number">
@@ -63,13 +63,15 @@ const checkInput = () =>{
                          :diff="diff"></Recipes>
               </li>
             </ul>
-            <h1 class="text-center text-2xl m350:text-xl mt-20 m1500:mt-10 m1300:mt-2 mb-3">Порций:</h1>
-
-            <div class="Buttons flex items-center justify-center gap-3 w-full  ">
-              <button @click="countDiffMinus" value="minus" class="w-1/3  h-14 m1080:h-10 bg-blue-100 rounded-l-xl">(-)</button>
-              <input v-model="diff" type="number" @input="checkInput" class="w-1/6 h-16 m1080:h-10  bg-blue-100  border-2 border-slate-300 text-center text-xl ">
-              <button @click="countDiffPlus" value="plus" class="w-1/3  h-14 m1080:h-10 bg-blue-100 rounded-r-xl">(+)</button>
+            <div class="flex flex-col gap-5">
+              <h1 class="text-center text-2xl font-medium m350:text-xl ">Порций:</h1>
+              <div class="Buttons flex items-center justify-center gap-3 w-full h-fit ">
+                <button @click="countDiffMinus" value="minus" class="w-16 h-16 bg-blue-100 rounded-3xl">(-)</button>
+                <input v-model="diff" type="number" @input="checkInput" class="w-16 h-16 bg-slate-400 rounded-3xl  border-2 border-slate-300 text-center font-bold text-white text-2xl ">
+                <button @click="countDiffPlus" value="plus" class="w-16 h-16 bg-blue-100 rounded-3xl">(+)</button>
+              </div>
             </div>
+
           </div>
 
         </div>
@@ -78,7 +80,7 @@ const checkInput = () =>{
       <h2 class="text-center mt-10 text-4xl m350:text-3xl font-bold opacity-90">Как готовить:</h2>
       <div class="flex flex-1 mb-20  px-10 m470:px-3 w-full ">
         <ul class="flex flex-col ml-10 w-full">
-          <li class="list-decimal my-4 text-3xl m1300:text-2xl m1080:text-xl m980:text-2xl m350:text-base" v-for="step in recipeData.recept"
+          <li class="list-decimal my-4 text-2xl m1080:text-xl" v-for="step in recipeData.recept"
               :key="recipeData.recept.id">{{step.text}}</li>
         </ul>
       </div>

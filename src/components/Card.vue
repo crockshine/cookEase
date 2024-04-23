@@ -14,7 +14,7 @@ const props = defineProps({
   <router-link :to="{name: 'Info', params:{recipes: `${props.id}`}}">
 
   <div class="White  flex justify-center items-center flex-col w-full transition
-            hover:-translate-y-5 hover:shadow-2xl hover:cursor-pointer m750:hover:shadow-none
+            hover:-translate-y-5 hover:shadow-2xl hover:cursor-pointer m750:hover:shadow-none m750:hover:transform-none
             rounded-3xl border-2 border-gray-400 border-opacity-20 pt-2 px-2">
 
     <img :src="image" alt="" class="w-full max-w-96 rounded-3xl">

@@ -1,7 +1,25 @@
-# Vue 3 + Vite
+# Готовить? Легко! 🍳
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Мой первый проект написанный на Vue - веб-приложение для поиска рецептов с адаптивным интерфейсом и PWA-функционалом.
 
-## Recommended IDE Setup
+**[Демо проекта](https://crockshine.github.io/cookEase/)**  
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## 📌 Что я освоил в этом проекте
+
+1. **Работа с Vue 3**:
+   - Основы Composition API
+   - Создание компонентов
+   - Работа с реактивностью
+
+2. **Интеграция с API**:
+   - Опыт работы с Mocky Dev для mock-данных
+   - Обработка ответов и ошибок
+     
+3. **Функционал приложения**:
+   - Динамический пересчет ингредиентов
+   - Фильтрация по категориям
+   - Поиск рецептов
+
+## 🛠 Технологии
+```bash
+Vue 3 | Composition API | Axios | PWA | Mocky Dev 
